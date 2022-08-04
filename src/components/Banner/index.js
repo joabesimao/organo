@@ -1,5 +1,9 @@
 import "./Banner.css";
 
 export const Banner = () => {
-  return <img src="./images/banner.png" alt="imgbanner"></img>;
+  return (
+    <header className="banner">
+      <img src="./images/banner.png" alt="imgbanner"></img>
+    </header>
+  );
 };
