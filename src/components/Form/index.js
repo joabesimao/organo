@@ -1,3 +1,4 @@
+import { Button } from "../Button";
 import { List } from "../List";
 import { TextField } from "../TextField";
 import "./Form.css";
@@ -21,6 +22,7 @@ export const Form = () => {
         <TextField label="Cargo" placeholder="digite seu cargo" />
         <TextField label="Imagem" placeholder="digite o endereço da imagem" />
         <List itens={team} />
+        <Button>Criar Card</Button>
       </form>
     </section>
   );
