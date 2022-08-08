@@ -22,7 +22,12 @@ export const Form = (props) => {
 
   const toSubmit = (event) => {
     event.preventDefault();
-    console.log("form foi submetido", name, office, image, team);
+    props.toTheCollaborator({
+      name,
+      office,
+      image,
+      team,
+    });
   };
   return (
     <section className="style-form">
