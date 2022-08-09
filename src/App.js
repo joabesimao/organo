@@ -8,7 +8,7 @@ function App() {
     {
       name: "Presidente",
       colorPrimary: "#57c278",
-      colorSecundary: "yellow",
+      colorSecundary: "lightgreen",
     },
     {
       name: "Diretor Administrativo",
@@ -58,6 +58,7 @@ function App() {
     <div className="App">
       <Banner />
       <Form
+        teams={squad.map((team) => team.name)}
         toTheCollaborator={(collaborator) => newCollaboratorAdd(collaborator)}
       />
       {squad.map((squad) => (
