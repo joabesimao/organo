@@ -5,16 +5,6 @@ import { TextField } from "../TextField";
 import "./Form.css";
 
 export const Form = (props) => {
-  const teams = [
-    "Presidente",
-    "Diretor Administrativo",
-    "Diretor Comercial",
-    "Gerente de Vendas",
-    "Gerente de Operações",
-    "Gerente de Marketing",
-    "Vendedores",
-    "Serviço Tecnico",
-  ];
   const [name, setName] = useState("");
   const [office, setOffice] = useState("");
   const [image, setImage] = useState("");
@@ -56,7 +46,7 @@ export const Form = (props) => {
         <List
           mandatory={true}
           label="Time"
-          itens={teams}
+          itens={props.teams}
           inputValue={team}
           toChanged={(inputValue) => setTeam(inputValue)}
         />
