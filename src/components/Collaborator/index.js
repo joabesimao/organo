@@ -3,7 +3,7 @@ import "./Collaborator.css";
 export const Collaborator = (props) => {
   return (
     <div className="coll">
-      <div className="header">
+      <div className="header" style={{ backgroundColor: props.color }}>
         <img src={props.image} alt={props.name} />
       </div>
       <div className="footer">
