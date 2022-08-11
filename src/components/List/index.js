@@ -7,8 +7,9 @@ export const List = (props) => {
       <select
         onChange={(event) => props.toChanged(event.target.value)}
         required={props.required}
-        value={props.value}
+        value={props.inputValue}
       >
+        <option value=""> </option>
         {props.itens.map((item) => (
           <option key={item}>{item}</option>
         ))}
