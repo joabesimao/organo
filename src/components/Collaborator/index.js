@@ -1,14 +1,14 @@
 import "./Collaborator.css";
 
-export const Collaborator = () => {
+export const Collaborator = (props) => {
   return (
     <div className="coll">
       <div className="header">
-        <img src="https://github.com/joabesimao.png" alt="Simao" />
+        <img src={props.image} alt={props.name} />
       </div>
       <div className="footer">
-        <h4>Joabe Simao</h4>
-        <h5>Dev</h5>
+        <h4>{props.name}</h4>
+        <h5>{props.office}</h5>
       </div>
     </div>
   );
