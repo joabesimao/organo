@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Banner } from "./components/Banner";
 import { Footer } from "./components/Footer";
 import { Form } from "./components/Form";
 import { Team } from "./components/Team";
+import {
+  createColaborator,
+  getAllColaborators,
+} from "./services/pessoas-service";
 
 function App() {
   const squad = [
@@ -50,9 +54,18 @@ function App() {
 
   const [collaborators, setCollaborators] = useState([]);
 
-  const newCollaboratorAdd = (collaborator) => {
-    console.log(collaborator);
-    setCollaborators([...collaborators, collaborator]);
+  useEffect(() => {
+    updateCollaborator();
+  }, []);
+
+  const updateCollaborator = async () => {
+    const updatedCollaborators = await getAllColaborators();
+    setCollaborators(updatedCollaborators);
+  };
+
+  const newCollaboratorAdd = async (collaborator) => {
+    await createColaborator(collaborator);
+    updateCollaborator();
   };
 
   return (
