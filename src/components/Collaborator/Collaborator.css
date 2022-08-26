@@ -11,10 +11,11 @@
   border-radius: 50%;
   position: relative;
   bottom: -50px;
+  text-align: center;
 }
 
 .coll .footer {
-  background: #ffffff;
+  background: #7c7878;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
   border-radius: 0px 0px 10px 10px;
   padding-top: 90px;
@@ -22,6 +23,7 @@
 }
 
 .coll.footer h4 {
+  text-align: center;
   color: #6278f7;
   font-size: 18px;
   line-height: 22px;
@@ -30,6 +32,7 @@
 }
 
 .coll .footer h5 {
+  text-align: center;
   font-size: 18px;
   line-height: 22px;
   color: #212121;
