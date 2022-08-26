@@ -11,42 +11,42 @@ import {
 function App() {
   const squad = [
     {
-      name: "Presidente",
+      nome: "Presidente",
       colorPrimary: "#57c278",
       colorSecundary: "lightgreen",
     },
     {
-      name: "Diretor Administrativo",
+      nome: "Diretor Administrativo",
       colorPrimary: "#82cffa",
       colorSecundary: "purple",
     },
     {
-      name: "Diretor Comercial",
+      nome: "Diretor Comercial",
       colorPrimary: "#f0f8e2",
       colorSecundary: "#a6d157",
     },
     {
-      name: "Gerente de Vendas",
+      nome: "Gerente de Vendas",
       colorPrimary: "#fde7e8",
       colorSecundary: "#ed6869",
     },
     {
-      name: "Gerente de Operações",
+      nome: "Gerente de Operações",
       colorPrimary: "#fae9f5",
       colorSecundary: "#db6ebf",
     },
     {
-      name: "Gerente de Marketing",
+      nome: "Gerente de Marketing",
       colorPrimary: "#57c278",
       colorSecundary: "white",
     },
     {
-      name: "Vendedores",
+      nome: "Vendedores",
       colorPrimary: "#82cffa",
       colorSecundary: "purple",
     },
     {
-      name: "Serviço Tecnico",
+      nome: "Serviço Tecnico",
       colorPrimary: "#f0f8e2",
       colorSecundary: "#a6d157",
     },
@@ -56,15 +56,21 @@ function App() {
 
   useEffect(() => {
     updateCollaborator();
+    getColab();
   }, []);
+
+  const getColab = async () => {
+    const get = await getAllColaborators();
+    setCollaborators(get);
+  };
 
   const updateCollaborator = async () => {
     const updatedCollaborators = await getAllColaborators();
     setCollaborators(updatedCollaborators);
   };
 
-  const newCollaboratorAdd = async (collaborator) => {
-    await createColaborator(collaborator);
+  const newCollaboratorAdd = async (collaborators) => {
+    await createColaborator(collaborators);
     updateCollaborator();
   };
 
@@ -72,17 +78,17 @@ function App() {
     <div className="App">
       <Banner />
       <Form
-        teams={squad.map((team) => team.name)}
+        teams={squad.map((team) => team.nome)}
         toTheCollaborator={(collaborator) => newCollaboratorAdd(collaborator)}
       />
       {squad.map((squad) => (
         <Team
-          key={squad.name}
-          name={squad.name}
+          key={squad.nome}
+          nome={squad.nome}
           colorPrimary={squad.colorPrimary}
           colorSecundary={squad.colorSecundary}
           collaborators={collaborators.filter(
-            (collaborator) => collaborator.team === squad.name
+            (collaborator) => collaborator.time === squad.nome
           )}
         />
       ))}
