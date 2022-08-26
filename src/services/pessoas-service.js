@@ -5,10 +5,11 @@ export const getAllColaborators = async () => {
   return result.data;
 };
 
-export const createColaborator = async (collaborator) => {
+export const createColaborator = async (collaborators) => {
   const result = await axios.post(
     "http://localhost:3000/pessoas",
-    collaborator
+    collaborators
   );
+
   return result.data;
 };
