@@ -5,23 +5,23 @@ import { TextField } from "../TextField";
 import "./Form.css";
 
 export const Form = (props) => {
-  const [name, setName] = useState("");
-  const [office, setOffice] = useState("");
-  const [image, setImage] = useState("");
-  const [team, setTeam] = useState("");
+  const [nome, setNome] = useState("");
+  const [cargo, setCargo] = useState("");
+  const [imagem, setImagem] = useState("");
+  const [time, setTime] = useState("");
 
   const toSubmit = (event) => {
     event.preventDefault();
     props.toTheCollaborator({
-      name,
-      office,
-      image,
-      team,
+      nome,
+      cargo,
+      imagem,
+      time,
     });
-    setName("");
-    setOffice("");
-    setImage("");
-    setTeam("");
+    setNome("");
+    setCargo("");
+    setImagem("");
+    setTime("");
   };
   return (
     <section className="style-form">
@@ -31,28 +31,28 @@ export const Form = (props) => {
           mandatory={true}
           label="Nome"
           placeholder="digite seu nome"
-          inputValue={name}
-          toChanged={(inputValue) => setName(inputValue)}
+          inputValue={nome}
+          toChanged={(inputValue) => setNome(inputValue)}
         />
         <TextField
           mandatory={true}
           label="Cargo"
           placeholder="digite seu cargo"
-          inputValue={office}
-          toChanged={(inputValue) => setOffice(inputValue)}
+          inputValue={cargo}
+          toChanged={(inputValue) => setCargo(inputValue)}
         />
         <TextField
           label="Imagem"
           placeholder="digite o endereço da imagem"
-          inputValue={image}
-          toChanged={(inputValue) => setImage(inputValue)}
+          inputValue={imagem}
+          toChanged={(inputValue) => setImagem(inputValue)}
         />
         <List
           mandatory={true}
           label="Time"
           itens={props.teams}
-          inputValue={team}
-          toChanged={(inputValue) => setTeam(inputValue)}
+          inputValue={time}
+          toChanged={(inputValue) => setTime(inputValue)}
         />
 
         <Button>Criar Card</Button>
